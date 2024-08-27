@@ -1,0 +1,111 @@
+:root{
+    --text-color: #000;
+    --primary-color: rgb(0, 47, 255);
+    --white-color: rgb(255,255,255);
+
+    
+}
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+header{
+    width: 100%;
+    height: 68px;
+    background-color: var(--primary-color);
+    border: solid 1px white;
+    box-shadow: rgb(230, 230, 230) 0px -0.5px 0px inset;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+li{
+    list-style: none;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+main{
+    width: 100%;
+}
+.btn-primal{
+    cursor: pointer;
+   width: 85%;
+   background-color: var(--primary-color);
+   color: var(--white-color);
+   border-radius: 50px;
+   padding: 7px;
+   border: none;
+}
+@keyframes fadeInMoveRight {
+    from {
+        
+        transform: translateX(-2px); /* Bắt đầu từ vị trí dịch sang trái 2px */
+    }
+    to {
+        
+        transform: translateX(0); /* Kết thúc tại vị trí ban đầu */
+    }
+}
+@keyframes expandFromCenter {
+    0% {
+        width: 0;
+        opacity: 0; /* Vật thể ban đầu sẽ ẩn */
+    }
+    50% {
+        width: 0;
+        opacity: 1; /* Vật thể xuất hiện ở giữa */
+    }
+    100% {
+        width: 100%; /* Vật thể lan rộng ra hai phía */
+        opacity: 1;
+    }
+}
+@keyframes fadeIn {
+   from{
+    opacity: 0;
+   }
+   to{
+    opacity: 1;
+   }
+}
+@keyframes Grown {
+    from{
+    transform: scale(var(--growth-from));
+    }
+    to{
+        transform: scale(var(--growth-to));
+    }
+ }
+/*phần đăng kí - đăng nhập*/
+.modal{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: 4;
+    display: flex;
+    animation: fadeIn 1s ease;
+}
+.modal-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-body-login,.modal-body-register{
+    --growth-from: 0.7;
+    --growth-to: 1;
+    margin: auto;
+    background-color: var(--white-color);
+    position: relative;
+    z-index: 5;
+    border-radius: 5px;
+    animation: Grown 0.3s ease-in;
+}
+.hide{
+    display: none;
+}

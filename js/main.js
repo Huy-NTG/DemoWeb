@@ -200,11 +200,40 @@ function loginTrationProcessing() {
     }
 }
 //hàm trình bày sản phẩm
+// function showProduct(products){
+//     var bookHTML = '';
+//     if(products.length == 0){
+//         document.querySelector('.title-menu-description').style.display = "none";
+//         bookHTML.innerHTML = `<div class="no-result"><div class="no-result-h">Tìm kiếm không có kết quả</div><div class="no-result-p">Xin lỗi, chúng tôi không thể tìm được kết quả hợp với tìm kiếm của bạn</div><div class="no-result-i"><i class="fa-light fa-face-sad-cry"></i></div></div>`;
+//     }
+//     else{
+//         // document.querySelector('.title-menu-description').style.display = "block";
+//         products.forEach((product) =>{
+//             bookHTML += `<div class="product-item">
+//                 <div class="cart-product">
+//                     <div class="product-header">
+//                         <a href="" class="cart-img-link">
+//                             <img class="product-img"  src="${product.img}" alt="" >
+//                         </a>
+//                     </div>
+//                     <div class="product-content">
+//                     <div class="product-name">${product.title}</div>
+//                     <div class="product-price">${product.price}</div>
+//                     <div class="product-buy">
+//                         <button class="btn-primal">ĐẶT HÀNG</button>
+//                     </div>
+//                 </div>
+//                 </div>
+//             </div>`
+//         });
+//     }
+//     document.querySelector('.home-products-list').innerHTML = bookHTML;
+// }
 function showProduct(products){
     var bookHTML = '';
     if(products.length == 0){
         document.querySelector('.title-menu-description').style.display = "none";
-        bookHTML.innerHTML = `<div class="no-result"><div class="no-result-h">Tìm kiếm không có kết quả</div><div class="no-result-p">Xin lỗi, chúng tôi không thể tìm được kết quả hợp với tìm kiếm của bạn</div><div class="no-result-i"><i class="fa-light fa-face-sad-cry"></i></div></div>`;
+        bookHTML += `<div class="no-result"><div class="no-result-h">Tìm kiếm không có kết quả</div><div class="no-result-p">Xin lỗi, chúng tôi không thể tìm được kết quả hợp với tìm kiếm của bạn</div><div class="no-result-i"><i class="fa-light fa-face-sad-cry"></i></div></div>`;
     }
     else{
         // document.querySelector('.title-menu-description').style.display = "block";
@@ -213,23 +242,24 @@ function showProduct(products){
                 <div class="cart-product">
                     <div class="product-header">
                         <a href="" class="cart-img-link">
-                            <img class="product-img"  src="${product.img}" alt="" >
+                            <img class="product-img" src="${product.img}" alt="">
                         </a>
                     </div>
                     <div class="product-content">
-                    <div class="product-name">${product.title}</div>
-                    <div class="product-price">${product.price}</div>
-                    <div class="product-buy">
-                        <button class="btn-primal">ĐẶT HÀNG</button>
+                        <div class="product-name">${product.title}</div>
+                        <div class="product-price">${product.price}</div>
+                        <div class="product-buy">
+                            <button class="btn-primal">ĐẶT HÀNG</button>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>`
+            </div>`;
         });
     }
     document.querySelector('.home-products-list').innerHTML = bookHTML;
 }
-
+// chức năng xem chi tiết sản phẩm
+// var deltailProduct =
 
 
 

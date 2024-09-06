@@ -241,7 +241,7 @@ function showProduct(products){
             bookHTML += `<div class="product-item">
                 <div class="cart-product">
                     <div class="product-header">
-                        <a href="" class="cart-img-link">
+                        <a href="" class="cart-img-link" onclick="showDeltailProduct(${product.id})">
                             <img class="product-img" src="${product.img}" alt="">
                         </a>
                     </div>
@@ -249,7 +249,7 @@ function showProduct(products){
                         <div class="product-name">${product.title}</div>
                         <div class="product-price">${product.price}</div>
                         <div class="product-buy">
-                            <button class="btn-primal">ĐẶT HÀNG</button>
+                            <button class="btn-primal" onclick="showDeltailProduct(${product.id})">ĐẶT HÀNG</button>
                         </div>
                     </div>
                 </div>
@@ -259,7 +259,106 @@ function showProduct(products){
     document.querySelector('.home-products-list').innerHTML = bookHTML;
 }
 // chức năng xem chi tiết sản phẩm
-// var deltailProduct =
+/*này là chủ làm */
+// function showDeltailProduct(idProduct){
+//     var modal_deltail_product = document.querySelector('.modal-deltail-product');
+//     var productList = localStorage.getItem('Book');
+//     var infoProduct = productList.find(sp =>{
+//         return sp.id === idProduct;
+//     })
+//     var modal_deltail_product_inner = `<div class="modal-body-deltail-product-inner">
+//             <div class="modal-body-deltial-img-product">
+//                 <img src="${infoProduct.img}" alt="" class="img-product">
+//             </div>
+//             <div class="modal-body-deltial-product-content-container">
+//                 <div class="body-deltial-product-info-container">
+//                     <div class="name-product">
+//                        <h3>${infoProduct.title}</h3>
+//                     </div>
+//                     <div class="price-quantity-product-container">
+//                         <div class="price-product">${infoProduct.price}</div>
+//                         <div class="quantity-product-container">
+//                             <button class="increase-btn quantity-btn"><i class="fa-solid fa-plus"></i></button>
+//                             <input type="number" class="quantity-input" value="1">
+//                             <button class="discreate-btn quantity-btn"><i class="fa-solid fa-minus"></i></button>
+//                         </div>
+//                     </div>
+//                 </div>
+//                 <div class="modal-product-notice">
+//                     <div class="product-notice-title">
+//                         <h4>ghi chú</h4>
+//                     </div>
+//                     <div class="product-notice-arena">
+//                         <textarea name="" id="" placeholder="Thông tin cần lưu ý ..." class="text-notice"></textarea>
+//                     </div>
+//                 </div>
+//                 <div class="modal-product-fotter">
+//                     <div class="product-fotter-price">
+//                         <h4>thành tiền</h4>
+//                         <div class="price-product">${infoProduct.price}</div>
+//                     </div>
+//                     <div class="fotter-shopping-container">
+//                         <button class="btn-primal shopping-btn">Đặt hàng ngay</button>
+//                         <button class="btn-primal add-shopping-product-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>`;
+//         modal_deltail_product.classList.remove('hide');
+//         document.querySelector('.modal-body-deltail-product').innerHTML = modal_deltail_product_inner;
+// }
+/*này là do chat làm */
+function showDeltailProduct(idProduct){
+    var modal_deltail_product = document.querySelector('.modal-deltail-product');
+    var productList = JSON.parse(localStorage.getItem('Book')); // Parse JSON từ localStorage
+    event.preventDefault();// sự kiện bọt bóng CHÚ Ý
+    var infoProduct = productList.find(sp => sp.id === idProduct); // Sử dụng === để so sánh
+   
+    modal_deltail_product.classList.remove('hide'); // Loại bỏ lớp 'hide'
+    var modal_deltail_product_inner = `
+        <div class="modal-body-deltail-product-inner">
+            <div class="modal-body-deltial-img-product">
+                <img src="${infoProduct.img}" alt="" class="img-product">
+            </div>
+            <div class="modal-body-deltial-product-content-container">
+                <div class="body-deltial-product-info-container">
+                    <div class="name-product">
+                        <h3>${infoProduct.title}</h3>
+                    </div>
+                    <div class="price-quantity-product-container">
+                        <div class="price-product">${infoProduct.price}</div>
+                        <div class="quantity-product-container">
+                            <button class="increase-btn quantity-btn"><i class="fa-solid fa-plus"></i></button>
+                            <input type="number" class="quantity-input" value="1">
+                            <button class="discrete-btn quantity-btn"><i class="fa-solid fa-minus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-product-notice">
+                    <div class="product-notice-title">
+                        <h4>Ghi chú</h4>
+                    </div>
+                    <div class="product-notice-arena">
+                        <textarea placeholder="Thông tin cần lưu ý ..." class="text-notice"></textarea>
+                    </div>
+                </div>
+                <div class="modal-product-footer">
+                    <div class="product-footer-price">
+                        <h4>Thành tiền</h4>
+                        <div class="price-product">${infoProduct.price}</div>
+                    </div>
+                    <div class="footer-shopping-container">
+                        <button class="btn-primal shopping-btn">Đặt hàng ngay</button>
+                        <button class="btn-primal add-shopping-product-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+    document.querySelector('.modal-body-deltail-product').innerHTML = modal_deltail_product_inner; // Thêm dấu chấm trước 'modal-body-deltail-product'
+}
+function exitProductDeltail(){
+    document.querySelector('.modal-deltail-product').classList.add('hide');
+}
 
 
 

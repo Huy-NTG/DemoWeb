@@ -80,7 +80,7 @@ main{
     }
  }
 /*phần đăng kí - đăng nhập*/
-.modal{
+.modal,.modal-deltail-product{
     top: 0;
     left: 0;
     bottom: 0;
@@ -96,7 +96,7 @@ main{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
 }
-.modal-body-login,.modal-body-register{
+.modal-body-login,.modal-body-register,.modal-body-deltail-product{
     --growth-from: 0.7;
     --growth-to: 1;
     margin: auto;

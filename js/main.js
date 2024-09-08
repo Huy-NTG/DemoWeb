@@ -63,7 +63,7 @@ loginBtn.addEventListener('click',function(event){
     loginTrationProcessing();
 
 })
-window.onload = showProduct(bookAll);// khi cửa sổ load lại tải lại sản phẩm và trình bày
+// window.onload = showProduct(bookAll);// khi cửa sổ load lại tải lại sản phẩm và trình bày
 /*xư lý sự kiện đăng kí*/
 /*mơi bắt đầu thì dùng if else cơ bản sau thì dùng promise vì promise rất phức tạp cho beginner */
 function regisTrationProcessing() {
@@ -359,6 +359,41 @@ function showDeltailProduct(idProduct){
 function exitProductDeltail(){
     document.querySelector('.modal-deltail-product').classList.add('hide');
 }
+/*phân trang cho danh sách sản phẩm */
+    let currentPage = 1
+    let perPage = 12
+    let totalPage = 0
+    let perProduct = []
+function Pagination(){ // phân trang
+    perProduct = bookAll.slice(
+        (currentPage -1 ) * perPage,
+        (currentPage - 1) * perPage + perPage,
+    )
+    renderPageNumber();
+    showProduct(perProduct);
+}
+function renderPageNumber(){ // số mục lục dựa trên sản phẩm
+    totalPage = bookAll.length / perPage
+    for(var i = 1; i <= totalPage; i++){
+        document.querySelector('.product-list-index').innerHTML += `<li class="list-item" onclick="handlePage(${i})">${i}</li>`
+    }
+}
+function handlePage(num){ // hiển thị dữ liệu khi click chỉ số mục lục
+    document.querySelectorAll('.list-item').forEach(item => {
+        item.classList.remove('active')
+        item.addEventListener('click', () => {
+            item.classList.add('active'); // Thay đổi lớp khi nhấn chuột
+        });
+    });
+    currentPage = num
+    perProduct = bookAll.slice(
+        (currentPage -1 ) * perPage,
+        (currentPage - 1) * perPage + perPage,
+    )
+    showProduct(perProduct);
+}
+window.onload = Pagination();
+// nên đặt tên cho dễ định nghĩa khi tìm kiếm chỉnh sửa hàm Pagination ---> showHomeProduct
 
 
 

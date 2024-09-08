@@ -367,6 +367,10 @@ phần hiển thị giỏ hàng trên trang header bản gốc ko xài chát gpt
     color: var(--white-color);
     cursor: pointer;
 }
+.list-item.active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
 /*chân trang phần cuối cùng của 1 trang web*/
 .footer{
     background-color: #f2f2f2;
@@ -729,6 +733,7 @@ border-bottom: solid 1px #888;
     background-color: #F7F7F7;
     border: none;
 }
+/*lỗi mỡi trình duyệt không nhận css ở đoạn giá của chi tiết giá sản phẩm*/
 .modal-product-fotter{
     display: flex;
     justify-content: space-between;
@@ -785,3 +790,5 @@ border-bottom: solid 1px #888;
 .icon-exit-deltial-product{
     font-size: 30px;
 }
+/*lỗi mỡi trình duyệt không nhận css ở đoạn giá của chi tiết giá sản phẩm*/
+
